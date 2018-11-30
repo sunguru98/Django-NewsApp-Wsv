@@ -4,12 +4,14 @@
 {% endblock title %}
 
 {% block main_block %}
+    <br>
     {% if user.is_authenticated %}
         Welcome {{user.username}}
+        <br>
         <p><a href="{% url 'logout' %}">Logout</a></p>
     {% else %}
-        <p>Please Log in or Signup for a new account</p>
+        <p>Please Log in or signup for a new account</p>
         <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'users_app:signup' %}">Signup</a>
+        <a href="{% url 'users_app:signup' %}" class="ml-2">Signup</a>
     {% endif %}
 {% endblock main_block %}
