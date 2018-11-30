@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Delete Article
+{% endblock title %}
+{% block main_block %}
+<br><br>
+    <h1>Delete article</h1>
+    <form method="POST" class="mt-2">
+        {% csrf_token %}
+        <h1>Are you sure you wanna delete {{article.title}} ??</h1>
+        <br><br>
+        <input type="submit" value="Confirm" class="btn btn-primary">
+        <a href="{% url 'articles_app:article_list' %}" class="btn btn-primary ml-2">Cancel</a>
+    </form>
+{% endblock main_block %}

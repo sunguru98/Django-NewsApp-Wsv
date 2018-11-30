@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}
+Create Article
+{% endblock title %}
+
+{% block main_block %}
+    <h1>Create New Article</h1>
+    <form method="POST" class="mt-2">
+        {% csrf_token %}
+        {{form|crispy}} 
+        <input type="submit" class="btn btn-warning" value="Create Article">
+        <a href="{% url 'articles_app:article_list' %}" class="btn btn-primary ml-2">Cancel</a>
+    </form>
+{% endblock main_block %}

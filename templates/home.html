@@ -4,14 +4,10 @@
 {% endblock title %}
 
 {% block main_block %}
-    <br>
-    {% if user.is_authenticated %}
-        Welcome {{user.username}}
-        <br>
-        <p><a href="{% url 'logout' %}">Logout</a></p>
-    {% else %}
-        <p>Please Log in or signup for a new account</p>
-        <a href="{% url 'login' %}">Login</a>
-        <a href="{% url 'users_app:signup' %}" class="ml-2">Signup</a>
-    {% endif %}
+    <div class="jumbotron">
+        <h1 class="display-4 mb-3">Welcome to the newspaper App</h1>
+        <p class="lead">Handcrafted with Django and Bootsrap Basic Themes</p>
+        <hr class="my-4">
+        <a class="btn btn-primary btn-lg" href="{% url 'articles_app:article_list' %}" role="button">View all Articles</a>
+    </div>
 {% endblock main_block %}
