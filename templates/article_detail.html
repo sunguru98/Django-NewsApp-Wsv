@@ -11,6 +11,12 @@
           <p class="card-text">{{article.body}}</p>
         </div>
         <div class="card-footer">
+            {% for comment in article.comments.all %}
+                <h6 class="text-left">{{comment.commentator}} :</h6>
+                <p class="text-left">{{comment.comment}}</p>
+                Posted at {{comment.date}}
+                <div class="dropdown-divider"></div>
+            {% endfor %}
             <a href="{% url 'articles_app:article_edit' article.pk %}" class="btn btn-warning mt-2">Edit</a> 
             <a href="{% url 'articles_app:article_delete' article.pk %}"> <button class="btn btn-danger mt-2 ml-2">Delete</button></a>
             <a href="{% url 'articles_app:article_list' %}"> <button class="btn btn-primary mt-3 ml-2">All Articles</button></a>
